@@ -6,47 +6,47 @@ import RenderTag from "./RenderTag";
 const RightSidebar = () => {
   const hotQuestions = [
     {
-      _id: 1,
+      _id: "1",
       title: "Wow Do i Use Express Custtom Servet in New Applications",
     },
     {
-      _id: 2,
+      _id: "2",
       title: "What was the last TV show you binge-watched? ",
     },
 
     {
-      _id: 3,
+      _id: "3",
       title: "Do you have a favorite holiday? Why or why not?",
     },
 
     {
-      _id: 4,
+      _id: "4",
       title: "What activity instantly calms you?",
     },
   ];
   const popularTags = [
     {
-      _id: 1,
+      _id: "1",
       name: "javascript",
       totalQuestions: 5,
     },
     {
-      _id: 2,
+      _id: "2",
       name: "Node",
       totalQuestions: 5,
     },
     {
-      _id: 3,
+      _id: "3",
       name: "Next",
       totalQuestions: 5,
     },
     {
-      _id: 4,
+      _id: "4",
       name: "Atom",
       totalQuestions: 5,
     },
     {
-      _id: 5,
+      _id: "5",
       name: "Mongo",
       totalQuestions: 5,
     },
