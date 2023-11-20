@@ -9,6 +9,7 @@
     "baseColor": "slate",
     "cssVariables": true
   },
+
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils"
