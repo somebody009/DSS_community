@@ -58,6 +58,7 @@ const Votes = ({
           hasdownVoted,
           path: pathname,
         });
+        // console.log(hasupVoted, "upvote");
       } else if (type === "Answer") {
         await upvoteAnswer({
           answerId: JSON.parse(itemId),
@@ -96,10 +97,18 @@ const Votes = ({
   };
 
   useEffect(() => {
+    // console.log("Effect is running...");
+
+    // console.log("itemId:", itemId);
+    // console.log("userId:", userId);
+    // console.log("pathname:", pathname);
+    // console.log("router:", router);
     viewQuestion({
       questionId: JSON.parse(itemId),
       userId: userId ? JSON.parse(userId) : undefined,
     });
+    // alert("viewed");
+    console.log("Effect completed.");
   }, [itemId, userId, pathname, router]);
 
   return (
@@ -122,6 +131,7 @@ const Votes = ({
           <div className="flex-center background-light700_dark400 min-w-[18px] rounded-sm p-1">
             <p className="subtle-medium text-dark400_light900">
               {formatAndDivideNumber(upvotes)}
+              {/* {console.log(upvotes, "up")} */}
             </p>
           </div>
         </div>

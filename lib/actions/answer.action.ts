@@ -56,39 +56,6 @@ export async function upvoteAnswer(params: AnswerVoteParams) {
     const { answerId, userId, hasupVoted, hasdownVoted, path } = params;
 
     let updateQuery = {};
-    if (hasupVoted) {
-      updateQuery = { $pull: { upvotes: userId } };
-    } else if (hasdownVoted) {
-      updateQuery = {
-        $pull: { downvotes: userId },
-        $push: { upvotes: userId },
-      };
-    } else {
-      updateQuery = { $addtoSet: { upvotes: userId } };
-    }
-    const answer = await Answer.findByIdAndUpdate(answerId, updateQuery, {
-      new: true,
-    });
-    if (!answer) {
-      throw new Error("Answer Not Found");
-    }
-
-    // Increment author's reputation by +10 for upvoting a question
-
-    revalidatePath(path);
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
-}
-
-export async function upvoteAnswer(params: AnswerVoteParams) {
-  try {
-    connectToDatabase();
-
-    const { answerId, userId, hasupVoted, hasdownVoted, path } = params;
-
-    let updateQuery = {};
 
     if (hasupVoted) {
       updateQuery = { $pull: { upvotes: userId } };

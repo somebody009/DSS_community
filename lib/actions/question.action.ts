@@ -94,6 +94,7 @@ export async function upvoteQuestion(params: QuestionVoteParams) {
     const { questionId, userId, hasupVoted, hasdownVoted, path } = params;
 
     let updateQuery = {};
+
     if (hasupVoted) {
       updateQuery = { $pull: { upvotes: userId } };
     } else if (hasdownVoted) {
@@ -102,16 +103,18 @@ export async function upvoteQuestion(params: QuestionVoteParams) {
         $push: { upvotes: userId },
       };
     } else {
-      updateQuery = { $addtoSet: { upvotes: userId } };
+      updateQuery = { $addToSet: { upvotes: userId } };
     }
+
     const question = await Question.findByIdAndUpdate(questionId, updateQuery, {
       new: true,
     });
+
     if (!question) {
-      throw new Error("Question Not Found");
+      throw new Error("Question not found");
     }
 
-    // Increment author's reputation by +10 for upvoting a question
+    // Increment author's reputation
 
     revalidatePath(path);
   } catch (error) {
@@ -119,6 +122,7 @@ export async function upvoteQuestion(params: QuestionVoteParams) {
     throw error;
   }
 }
+
 export async function downvoteQuestion(params: QuestionVoteParams) {
   try {
     connectToDatabase();
@@ -126,24 +130,28 @@ export async function downvoteQuestion(params: QuestionVoteParams) {
     const { questionId, userId, hasupVoted, hasdownVoted, path } = params;
 
     let updateQuery = {};
+
     if (hasdownVoted) {
-      updateQuery = { $pull: { downvotes: userId } };
+      updateQuery = { $pull: { downvote: userId } };
     } else if (hasupVoted) {
       updateQuery = {
         $pull: { upvotes: userId },
         $push: { downvotes: userId },
       };
     } else {
-      updateQuery = { $addtoSet: { downvotes: userId } };
+      updateQuery = { $addToSet: { downvotes: userId } };
     }
+    // console.log(downvotes, "+55515");
+
     const question = await Question.findByIdAndUpdate(questionId, updateQuery, {
       new: true,
     });
+
     if (!question) {
-      throw new Error("Question Not Found");
+      throw new Error("Question not found");
     }
 
-    // Increment author's reputation by +10 for upvoting a question
+    // Increment author's reputation
 
     revalidatePath(path);
   } catch (error) {
