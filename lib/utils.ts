@@ -52,3 +52,20 @@ export const formatAndDivideNumber = (num: number): string => {
     return num.toString();
   }
 };
+
+// get the javascript date object as a parameter and return a joined date (just month and year )
+
+export const getJoinedDate = (dateObject: Date): string => {
+  const options: Intl.DateTimeFormatOptions = {
+    month: "long",
+    year: "numeric",
+  };
+  const joinedDate: string = dateObject.toLocaleString("en-US", options);
+
+  return joinedDate;
+};
+
+// Example usage:
+// const currentDate: Date = new Date();
+// const result: string = getJoinedDate(currentDate);
+// console.log(result);
