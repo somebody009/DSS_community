@@ -74,7 +74,7 @@ const MobileNav = () => {
             src="/assets/images/site-logo.svg"
             width={23}
             height={23}
-            alt="DevFlow"
+            alt="AB Tech"
           />
 
           <p className="h2-bold text-dark100_light900 font-spaceGrotesk">
