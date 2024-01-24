@@ -7,6 +7,12 @@ import { SearchParamsProps } from "@/types";
 import Link from "next/link";
 import Pagination from "@/components/shared/Pagination";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Tags | AB Tech",
+};
+
 const Page = async ({ searchParams }: SearchParamsProps) => {
   const result = await getAllTags({
     searchQuery: searchParams.q,

@@ -12,6 +12,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Question | AB Tech",
+};
+
 const Page = async ({ params, searchParams }: any) => {
   const { userId: clerkId } = auth();
 
