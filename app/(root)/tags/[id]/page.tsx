@@ -9,9 +9,8 @@ import React from "react";
 const Page = async ({ params, searchParams }: URLProps) => {
   const result = await getQuestionsByTagId({
     tagId: params.id,
-    page: 1,
-    searchQuery: searchParams.q,
     page: searchParams.page ? +searchParams.page : 1,
+    searchQuery: searchParams.q,
   });
   return (
     <>

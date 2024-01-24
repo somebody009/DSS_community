@@ -5,7 +5,7 @@ import QuestionCard from "../cards/QuestionCard";
 import Pagination from "./Pagination";
 interface Props extends SearchParamsProps {
   userId: string;
-  clerkId?: string | undefined;
+  clerkId?: string | undefined | any;
 }
 
 const QuestionTab = async ({ searchParams, userId, clerkId }: Props) => {
