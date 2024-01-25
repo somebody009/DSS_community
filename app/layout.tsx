@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Archivo } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 import "../styles/prism.css";
@@ -14,14 +14,14 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const spaceGrotesk = Archivo({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-spaceGrotesk",
+  variable: "--font-archivo",
 });
 
 export const metadata: Metadata = {
-  title: "AB Tech",
+  title: " DSS Community",
   description:
     "A community-driven platform for asking and answering programming questions. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in web development, mobile app development, algorithms, data structures, and more.",
   icons: {

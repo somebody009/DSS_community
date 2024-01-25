@@ -11,7 +11,7 @@ import { auth } from "@clerk/nextjs";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Collection | AB Tech",
+  title: "Collection | DSS Community",
 };
 
 export default async function Home({ searchParams }: SearchParamsProps) {

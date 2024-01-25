@@ -10,7 +10,7 @@ import Pagination from "@/components/shared/Pagination";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Tags | AB Tech",
+  title: "Tags | DSS Community",
 };
 
 const Page = async ({ searchParams }: SearchParamsProps) => {

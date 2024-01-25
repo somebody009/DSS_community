@@ -18,7 +18,7 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          500: "#FF7000",
+          500: "#ff7000",
           100: "#FFF1E6",
         },
         dark: {
@@ -40,7 +40,7 @@ module.exports = {
       },
       fontFamily: {
         inter: ["var(--font-inter)"],
-        spaceGrotesk: ["var(--font-spaceGrotesk)"],
+        spaceGrotesk: ["var(--font-archivo)"],
       },
       boxShadow: {
         "light-100":

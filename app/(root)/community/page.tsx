@@ -9,7 +9,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Community | AB Tech",
+  title: "Community | DSS Community",
 };
 
 const Page = async ({ searchParams }: SearchParamsProps) => {

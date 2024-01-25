@@ -18,7 +18,7 @@ import { Metadata } from "next";
 import { auth } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
-  title: "Home | AB Tech",
+  title: "Home | DSS Community",
 };
 
 export default async function Home({ searchParams }: SearchParamsProps) {

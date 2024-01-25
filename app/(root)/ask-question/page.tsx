@@ -6,7 +6,7 @@ import React from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ask a question | AB Tech",
+  title: "Ask a question | DSS Community",
 };
 
 const Page = async () => {

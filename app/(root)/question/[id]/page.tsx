@@ -15,7 +15,7 @@ import React from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Question | AB Tech",
+  title: "Question | DSS Community",
 };
 
 const Page = async ({ params, searchParams }: any) => {
