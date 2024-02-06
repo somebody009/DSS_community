@@ -10,6 +10,7 @@ import {
 import Tag, { ITag } from "@/database/tag.model";
 import Question from "@/database/question.model";
 import { FilterQuery } from "mongoose";
+import Interaction from "@/database/interaction.model";
 
 export async function getTopInteractedTags(params: GetTopInteractedTagsParams) {
   try {
@@ -21,12 +22,33 @@ export async function getTopInteractedTags(params: GetTopInteractedTagsParams) {
 
     if (!user) throw new Error("User not found");
 
+    const query: FilterQuery<typeof Interaction> = {
+      action: "ask_question",
+      user: user._id,
+    };
+
+    // Get all tags of questions asked by user
+    const userTags = (
+      await Interaction.find(query).populate("tags", "_id name")
+    )
+      .map((interaction) => interaction.tags.map((tag: any) => tag.name))
+      .flat()
+      .sort();
     // Find interactions for the user and group by tags...
     // Interaction...
+    // Get top 3 tags by frequency
+    const tagsFrequency = new Map();
+    userTags.forEach((element) => {
+      tagsFrequency.set(element, (tagsFrequency.get(element) || 0) + 1);
+    });
 
+    const tagsArray = Array.from(tagsFrequency.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map((tag) => tag[0]);
     return [
-      { _id: "1", name: "tag" },
-      { _id: "2", name: "tag2" },
+      { _id: "1", name: tagsArray[0] },
+      { _id: "2", name: tagsArray[1] },
+      { _id: "3", name: tagsArray[2] },
     ];
   } catch (error) {
     console.log(error);
